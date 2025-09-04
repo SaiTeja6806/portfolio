@@ -1,0 +1,211 @@
+:root{
+  --bg: #111218;
+  --soft: #23242b;
+  --accent: #66b2ff;
+  --deep: #f5f6fa;
+  --muted: #b0b3c6;
+  --card: #181924;
+  --shadow: 0 10px 30px rgba(0,0,0,0.45);
+  --rounded: 16px;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color:var(--deep);
+  /* remove background-image from body */
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    url("images/elevated-view-laptop-earphones-crumpled-papers-pencil-blank-spiral-notepad-frame-black-background.jpg"),
+    linear-gradient(180deg, rgba(17,18,24,0.95) 0%, rgba(17,18,24,0.95) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transform: scaleX(-1); /* flip horizontally */
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Header */
+.site-header{
+  position:fixed; top:0; left:0; right:0; height:72px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 20px; z-index:100;
+  background: rgba(24,25,36,0.92); /* dark translucent */
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.brand{display:flex; gap:12px; align-items:center}
+.logo{font-size:28px}
+.brand-name{font-weight:800}
+.brand-sub{font-size:12px; color:var(--muted)}
+.nav{display:flex; gap:18px}
+.nav a{color:var(--deep); text-decoration:none; font-weight:700; opacity:0.95}
+.nav a:hover{color:var(--accent); transform:translateY(-2px)}
+
+/* Main hero */
+.home-section{
+  display:flex; gap:24px; align-items:center;
+  padding:120px 60px 80px; /* increased left/right padding from 20px to 60px */
+  min-height:540px;
+}
+.home-left{flex:1; max-width:720px; margin-left:40px;} /* added margin-left for more right shift */
+.hi{font-size:20px; margin:0; color:var(--muted)}
+.myname{font-size:44px; margin:6px 0 12px; font-weight:800; letter-spacing: -1px}
+.accent{color:var(--accent)}
+.tagline{font-size:16px; color:var(--muted); max-width:540px}
+
+/* Buttons */
+.buttons{margin:18px 0; display:flex; gap:12px; flex-wrap:wrap}
+.btn{
+  display:inline-block; padding:10px 14px; border-radius:12px; text-decoration:none;
+  background:transparent; border:2px solid rgba(0,0,0,0.06); color:var(--deep); font-weight:800;
+  box-shadow: var(--shadow);
+}
+.btn.primary{
+  background: linear-gradient(180deg, #66b2ff, #3b8fff); color:white; border:none;
+}
+.btn:hover{transform:translateY(-3px)}
+
+/* Avatar */
+.home-right {
+  width:320px;
+  display:flex; align-items:center; justify-content:center;
+  padding:0;
+}
+.avatar-wrap {
+  position: relative;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 140, 255, 0.6); /* Blue glow */
+  transition: 0.4s ease-in-out;
+}
+.avatar-wrap:hover { transform:none; }
+#avatar {
+  display:block;
+  width:100%; height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position: center top;
+  box-shadow: 0 0 48px 16px #66b2ff, 0 0 96px 32px rgba(102,178,255,0.25);
+  
+}
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+/* Panels */
+.panel{padding:80px 20px}
+.container{max-width:1100px; margin:0 auto}
+.panel-inner{background:var(--card); border-radius:var(--rounded); padding:28px; box-shadow:var(--shadow)}
+.panel.alt{background:transparent}
+
+/* Cards & grid */
+.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin-top:18px}
+.card{padding:18px; border-radius:12px; background:linear-gradient(180deg,#181924,#23242b); box-shadow: var(--shadow)}
+.projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:16px}
+.project{padding:16px; border-radius:10px; background:#181924; box-shadow:var(--shadow)}
+
+/* Contact form */
+.contact-form{display:grid; gap:12px; margin-top:12px}
+.contact-form input,.contact-form textarea{
+  padding:12px; border-radius:10px; border:1px solid rgba(0,0,0,0.06); font-size:14px;
+}
+.contact-form button{width:max-content}
+.contact-mini a {
+  color: #e0cfcf;
+  text-decoration: none; /* remove underline */
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer{text-align:center; padding:28px 14px; color:var(--muted); font-weight:700}
+
+/* Icons */
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 6px 0 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 60px;
+  padding: 10px 8px;
+}
+.chip.skill-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 60px;
+  padding: 10px 8px;
+}
+.soft-skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip-container {
+  display: flex !important;
+  flex-wrap: wrap !important;   /* Force wrapping */
+  gap: 10px;                    /* Space between chips */
+  width: 100%;    
+}  
+.soft-chip {
+  background: #23242b;
+  color: #f5f6fa;
+  border: 1px solid #66b2ff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 18px;
+  margin-bottom: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+/* Links */
+.project-link {
+  color: #66b2ff;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.project-link:hover {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .home-section{flex-direction:column; align-items:flex-start}
+  .home-right{width:100%; order: -1; display:flex; justify-content:flex-end}
+  .avatar-wrap{margin-right:24px}
+  .nav{display:none}
+}
